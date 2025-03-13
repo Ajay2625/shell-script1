@@ -1,8 +1,10 @@
-All variables passed: $@ 
-Number of variables: $#
-script name: $0
-present working directory: $PWD
-home directory of current user: $HOME
-which user is running this script: $USER
-process id of current script: $$
-process id of last command in background: $!
+#!/bin/bash
+
+echo "All variables passed: $@" 
+echo "Number of variables: $#"
+echo "script name: $0"
+echo "present working directory: $PWD"
+echo "home directory of current user: $HOME"
+echo "which user is running this script: $USER"
+echo "process id of current script: $$"
+echo "process id of last command in background: $!"
