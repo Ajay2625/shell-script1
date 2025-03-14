@@ -1,17 +1,32 @@
 #!/bin/bash
 
-USER=$(id -u)
+USERID=$(id -u)
 
-dnf list installed | grep mysqld
 
 if [ $USER -ne 0 ]
 then
-    echo "You must be root user to execute this command"
-else
-    if [ $? -ne 0 ]
-    then 
-        dnf install mysql-server
-    else
-        echo "mysql is already installed"
-    fi
+    echo "You must have sudo access to execute this script"
+    exit 1 # other than 0
 fi
+
+dnf install mysql -y
+
+if [ $? -ne 0 ]
+then
+    echo "Installing MySQL... FAILURE"
+    exit 1
+else
+    echo "Installing MySQL ... SUCCESS"
+fi
+
+git install git -y
+
+if [ $? -ne 0 ]
+then
+    echo "Installing Git... FAILURE"
+    exit 1
+else
+    echo "Installing Git ... SUCCESS"
+fi
+
+
