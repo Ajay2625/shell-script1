@@ -3,7 +3,7 @@
 USERID=$(id -u)
 
 
-if [ $USER -ne 0 ]
+if [ $USERID -ne 0 ]
 then
     echo "You must have sudo access to execute this script"
     exit 1 # other than 0
